@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datos almacenados</title>
+  <style>
+    :root {
+      --background-color: #2b2d42;
+      --text-color: #8d99ae;
+      --table-background-color: #3b3c48;
+      --border-color: #444;
+      --th-background-color: #444;
+      --button-background-color: #f44336;
+      --button-hover-background-color: #ff6659;
+      --copy-button-background-color: #4CAF50;
+      --copy-button-hover-background-color: #66bb6a;
+      --accent-color: #ef233c;
+      --font-family: 'Roboto Mono', monospace;
+    }
+
+    body.light {
+      --background-color: #f5f5f5;
+      --text-color: #222;
+      --table-background-color: #ffffff;
+      --border-color: #ccc;
+      --th-background-color: #f2f2f2;
+      --button-background-color: #4CAF50;
+      --button-hover-background-color: #66bb6a;
+      --copy-button-background-color: #f44336;
+      --copy-button-hover-background-color: #ff6659;
+      --accent-color: #ef233c;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--background-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: var(--text-color);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .toggle-theme {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+    }
+
+    table {
+      width: 70%;
+      margin: 0 auto;
+      border-collapse: collapse;
+      background-color: var(--table-background-color);
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    th,
+    td {
+      border: 1px solid var(--border-color);
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--th-background-color);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    button {
+      background-color: var(--button-background-color);
+      border: none;
+      color: white;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 20px;
+      padding: 5px 15px;
+      font-size: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    button:hover {
+      background-color: var(--button-hover-background-color);
+    }
+
+    button.copy,
+    .copy-all {
+      background-color: var(--copy-button-background-color);
+    }
+
+    button.copy:hover,
+    .copy-all:hover {
+      background-color: var(--copy-button-hover-background-color);
+}
+
+.copy-all {
+  float: right;
+}
+
+select {
+  background-color: var(--th-background-color);
+  border: none;
+  color: white;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+select:hover {
+  background-color: var(--button-hover-background-color);
+}
+  </style>
+</head>
+
+<body>
+  <h1>Datos almacenados</h1>
+  <button class="toggle-theme" onclick="toggleTheme()">Cambiar tema</button>
+  <table>
+    <thead>
+      <tr>
+        <th>Nick (Discord)</th>
+        <th>Id (Discord)</th>
+        <th>Wallet (Metamask) <button id="copyAllWallets" class="copy-all">Copiar todos los wallets</button></th>
+        <th>Copiar</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody id="datos">
+    </tbody>
+  </table>
+  <script>
+        function toggleTheme() {
+      document.body.classList.toggle('light');
+    }
+
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(
+        function () {
+          console.log("Texto copiado al portapapeles.");
+        },
+        function (err) {
+          console.error("Error al copiar el texto:", err);
+        }
+      );
+    }
+
+    function handleCopy(selectElement, elemento) {
+      const selectedOption = selectElement.value;
+
+      switch (selectedOption) {
+        case 'nick':
+          copyToClipboard(elemento.nombre);
+          break;
+        case 'id':
+          copyToClipboard(elemento.id);
+          break;
+        case 'wallet':
+          copyToClipboard(elemento.wallet);
+          break;
+        case 'all':
+          copyToClipboard(`${elemento.nombre}, ${elemento.id}, ${elemento.wallet}`);
+          break;
+      }
+    }
+    async function removeRow(row) {
+      const id = row.getAttribute("data-id"); // Asegúrate de tener esta línea
+
+      try {
+        const response = await fetch(`http://localhost:3000/api/eliminarDato/${id}`, {
+          method: "DELETE",
+        });
+
+        if (response.ok) {
+          row.parentNode.removeChild(row);
+        } else {
+          console.error("Error al eliminar el dato:", response.statusText);
+        }
+      } catch (error) {
+        console.error("Error al eliminar el dato:", error);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch("http://localhost:3000/api/obtenerDatos")
+        .then(response => response.json())
+        .then(data => {
+          const tabla = document.getElementById("datos");
+          data.forEach(elemento => {
+            const fila = document.createElement("tr");
+            fila.setAttribute("data-id", elemento._id);
+
+            const nombre = document.createElement("td");
+            nombre.textContent = elemento.nombre;
+            fila.appendChild(nombre);
+
+            const id = document.createElement("td");
+            id.textContent = elemento.id;
+            fila.appendChild(id);
+
+            const wallet = document.createElement("td");
+            wallet.textContent = elemento.wallet;
+            fila.appendChild(wallet);
+
+            const copyCell = document.createElement("td");
+            const copySelect = document.createElement("select");
+            copySelect.innerHTML = `
+            <option value="" disabled selected>Copiar...</option>
+            <option value="nick">Copia Nick</option>
+            <option value="id">Copia Id</option>
+            <option value="wallet">Copia Wallet</option>
+            <option value="all">Copia Todo</option>`;
+            copySelect.onchange = () => handleCopy(copySelect, elemento);
+            copyCell.appendChild(copySelect);
+            fila.appendChild(copyCell);
+
+            document.getElementById("copyAllWallets").addEventListener("click", function () {
+              const wallets = Array.from(document.querySelectorAll("#datos > tr > td:nth-child(3)")).map(
+                (walletCell) => walletCell.textContent
+              );
+              const walletsText = wallets.join("\n");
+              copyToClipboard(walletsText);
+            });
+
+            const deleteCell = document.createElement("td");
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "Eliminar";
+            deleteButton.onclick = () => removeRow(fila);
+            deleteCell.appendChild(deleteButton);
+            fila.appendChild(deleteCell);
+
+            tabla.insertBefore(fila, tabla.firstChild);
+          });
+        })
+        .catch(error => {
+          console.error("Error al obtener los datos:", error);
+        });
+    });
+  </script>
+</body>
+
+</html>
