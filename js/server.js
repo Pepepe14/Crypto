@@ -102,7 +102,7 @@ app.post("/api/guardarDatos", async (req, res) => {
       `https://api.zealy.io/communities/elonwolf/users/${req.body.id}`,
       {
         headers: {
-          Authorization: "88b5b3lYxgTMUPLIcRj2BBgGBmp",
+          "x-api-key": "88b5b3lYxgTMUPLIcRj2BBgGBmp",
         },
       }
     );
@@ -160,7 +160,7 @@ app.post("/api/registerUser", async (req, res) => {
       `https://api.zealy.io/communities/elonwolf/users/${req.body.id}/tasks`,
       {
         headers: {
-          Authorization: "88b5b3lYxgTMUPLIcRj2BBgGBmp",
+          "x-api-key": "88b5b3lYxgTMUPLIcRj2BBgGBmp",
         },
       }
     );
@@ -189,4 +189,3 @@ app.post("/api/registerUser", async (req, res) => {
 app.listen(port, () => {
   console.log(`Servidor escuchando en el puerto ${port}`);
 });
-
