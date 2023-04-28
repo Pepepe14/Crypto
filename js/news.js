@@ -59,7 +59,7 @@ function animateCircles() {
 animateCircles();
 
 const createNewsBtn = document.getElementById("create-news-btn");
-const formContainer = document.getElementById("form-container");
+const formContainer = document.getElementById("form-container-news");
 const closeBtn = document.getElementById("close-btn");
 const newsForm = document.getElementById("news-form");
 const charLimitMsg = document.getElementById("char-limit-msg");

@@ -182,7 +182,7 @@ select:hover {
       const id = row.getAttribute("data-id"); // Asegúrate de tener esta línea
 
       try {
-        const response = await fetch(`http://localhost:3000/api/eliminarDato/${id}`, {
+        const response = await fetch(`http://localhost:5000/api/eliminarDato/${id}`, {
           method: "DELETE",
         });
 
@@ -197,7 +197,7 @@ select:hover {
     }
 
     document.addEventListener("DOMContentLoaded", function () {
-      fetch("http://localhost:3000/api/obtenerDatos")
+      fetch("http://localhost:5000/api/obtenerDatos")
         .then(response => response.json())
         .then(data => {
           const tabla = document.getElementById("datos");

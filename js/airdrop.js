@@ -71,7 +71,7 @@ document.getElementById("form").addEventListener("submit", function (event) {
       wallet: wallet,
     };
   
-    fetch("http://localhost:3000/api/guardarDatos", {
+    fetch("http://localhost:5000/api/guardarDatos", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
