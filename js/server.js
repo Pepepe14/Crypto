@@ -83,61 +83,33 @@ app.post("/send-email", async (req, res) => {
   }
 });
 
-// Código de axios eliminado, no lo estás usando en ninguna parte
-
-async function getUserXP(userId, userName, userWallet) {
-  try {
-    const response = await axios.get(
-      `https://api.zealy.io/communities/elonwolf/claimed-quests`,
-      {
-        headers: {
-          "x-api-key": "0db8dct9sK2WzkhVcvJxcxotxmX",
-        },
-        
-      },
-    );
-console.log("response", response)
-    const userXPData = response.data.data.find(
-      (user) => user.user_id === userId ||user.name === userName || user.ethAddress === userWallet
-    );
-
-    return userXPData ? userXPData.xp : 0;
-  } catch (error) {
-    console.error("Error al obtener la XP del usuario:", error);
-    return 0;
-  }
-}
-
 const DatosSchema = new mongoose.Schema({
   nombre: String,
   id: String,
   wallet: String,
-  xp: Number,
 });
 
 const Datos = mongoose.model("Datos", DatosSchema);
+console.log(DatosSchema)
+
 
 app.post("/api/guardarDatos", async (req, res) => {
   const userId = req.body.id;
   const userName = req.body.nombre;
   const userWallet = req.body.wallet;
-  const serverId = "1087454551105347614";
-  const userXP = await getUserXP(userId, serverId);
-
+  
   try {
-    let user = await Datos.findOne({ id: userId});
+    let user = await Datos.findOne({ id: userId });
     if (user) {
       user.nombre = userName;
+      user.id = userId;
       user.wallet = userWallet;
-      user.xp = userXP; // Asignar la XP del usuario
       await user.save();
     } else {
-      // Crear un nuevo documento para el usuario
       const nuevosDatos = new Datos({
-        nombre: req.body.nombre,
-        id: req.body.id,
-        wallet: req.body.wallet,
-        xp: userXP,
+        nombre: userName,
+        id: userId,
+        wallet: userWallet,
       });
       await nuevosDatos.save();
     }
@@ -152,6 +124,16 @@ app.get("/api/obtenerDatos", async (req, res) => {
   try {
     const datos = await Datos.find({});
     res.send(datos);
+  } catch (error) {
+    console.error("Error al obtener los datos:", error);
+    res.status(500).send("Error al obtener los datos");
+  }
+});
+
+app.get("/api/totalUsers", async (req, res) => {
+  try {
+    const totalusers = await Datos.find();
+    res.json(totalusers);
   } catch (error) {
     console.error("Error al obtener los datos:", error);
     res.status(500).send("Error al obtener los datos");
