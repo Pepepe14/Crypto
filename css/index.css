@@ -333,10 +333,14 @@ footer>h6 {
 
 
 /* responsiveness */
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1700px) {
 
     h1 {
         font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.7rem;
     }
 
     .universal-div {
@@ -362,8 +366,6 @@ footer>h6 {
     .image-wolf-other-width {
         display: none;
     }
-
-
 
     .footer-airdrop {
         flex-direction: column;
