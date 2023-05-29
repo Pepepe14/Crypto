@@ -148,8 +148,10 @@ h6 {
     padding: 5px;
 }
 
+
 .percent {
     color: #02C189;
+    font-size: 3rem;
 }
 
 .image-wolf {
@@ -355,6 +357,10 @@ footer>h6 {
 
     .box-info {
         max-width: 35vw;
+    }
+
+    .percent {
+        font-size: 2rem;
     }
 
     .stats-airdrop {
