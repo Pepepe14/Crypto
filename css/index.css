@@ -168,17 +168,6 @@ h6 {
     text-align: center;
 }
 
-/* .main-form {
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.main-form:hover {
-    opacity: 0.45;
-    user-select: none;
-} */
-
-
 .form-airdrop {
     display: flex;
     flex-direction: column;
@@ -188,15 +177,6 @@ h6 {
     border-radius: 5px;
     background-color: #1E2738;
 }
-
-.form-parts {
-    display: inline-flex;
-}
-
-/* .form-airdrop:hover input,
-button {
-    pointer-events: none;
-} */
 
 #form-title {
     color: #02C189;
