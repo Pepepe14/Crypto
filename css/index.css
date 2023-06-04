@@ -178,6 +178,10 @@ h6 {
     background-color: #1E2738;
 }
 
+.form-parts {
+    display: inline-flex;
+}
+
 #form-title {
     color: #02C189;
 
