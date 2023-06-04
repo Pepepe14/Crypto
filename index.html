@@ -37,7 +37,7 @@
                         <div class="sencondary-box">
                             <div class="box-info">
                                 <h6>A memecoin that promises to turn you into the next trend.
-                                </h1>
+                                    </h1>
                             </div>
                         </div>
                     </div>
@@ -108,7 +108,7 @@
         <h1 class="name-title">Airdrop</h1>
         <section class="main-form">
             <form class="form-airdrop" id="form">
-                <section class="form-parts">
+                <!-- <section class="form-parts">
                     <h3 id="form-title">Form Airdrop</h3>
                     <section class="stats-airdrop">
                         <div class="item-airdrop">
@@ -124,24 +124,25 @@
                             <p class="stats-number">$...</p>
                         </div>
                     </section>
-                </section>
+                </section> -->
                 <label for="nombre">Nick (Discord):</label>
                 <input class="input-airdrop" type="text" id="nombre" name="nombre" required minlength="3" maxlength="32"
-                    pattern="^[\w\s-]{2,32}#\d{4}$" title="Solo se permiten letras, números, guiones bajos y guiones.">
+                    autocomplete="off" pattern="^[\w\s-]{2,32}#\d{4}$"
+                    title="Only letters, numbers, underscores, and hyphens are allowed.">
                 <label for="id">Id (Discord):</label>
                 <input class="input-airdrop" type="text" id="id" name="id"
-                    title="El ID de Discord debe ser un número de 17 a 18 dígitos.">
+                    title="The Discord ID must be a 17-18 digit number.">
                 <label for="wallet">Wallet (Metamask)</label>
-                <input class="input-airdrop" type="text" id="wallet" name="wallet" required
+                <input class="input-airdrop" type="text" id="wallet" name="wallet" required autocomplete="off"
                     pattern="^0x[a-fA-F0-9]{40}$"
-                    title="Debe ser una dirección de wallet de Ethereum válida, comenzando con '0x' seguida de 40 caracteres alfanuméricos.">
+                    title="Must be a valid Ethereum wallet address, starting with '0x' followed by 40 alphanumeric characters.">
                 <div class="button-container">
                     <button type="submit" id="">Send</button>
                     <button type="button" id="delete">Delete</button>
                     <button type="button" id="copy">Copy</button>
                 </div>
             </form>
-            <p id="mensaje" style="display:none">Enviado correctamente</p>
+            <p id="mensaje" style="display:none">Submitted successfully</p>
         </section>
         <!-- <h1 class="name-title">News</h1>
         <div class="universal-news">
@@ -202,8 +203,10 @@
         </div> -->
     </main>
     <footer class="footer-airdrop">
-        <a href="https://twitter.com/TheWolfElon_13" target="_blank"><img src="images/social-image/twitter.png" alt="twitter"></a>
-        <a href="https://t.me/+cWU05ChmNbowNTM0" target="_blank"><img src="images/social-image/telegram.png" alt="telegram"></a>
+        <a href="https://twitter.com/TheWolfElon_13" target="_blank"><img src="images/social-image/twitter.png"
+                alt="twitter"></a>
+        <a href="https://t.me/+cWU05ChmNbowNTM0" target="_blank"><img src="images/social-image/telegram.png"
+                alt="telegram"></a>
         <a href="https://app.uniswap.org/#/swap" target="_blank"><img src="images/social-image/uniswap.png"
                 alt="uniswap"></a>
         <h6>ElonWolf 2023<br>Contract 0xc6b97f64c4ace0f5869d109cdf60e966b10ae898</h6>

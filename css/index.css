@@ -168,7 +168,7 @@ h6 {
     text-align: center;
 }
 
-.main-form {
+/* .main-form {
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
 }
@@ -176,7 +176,7 @@ h6 {
 .main-form:hover {
     opacity: 0.45;
     user-select: none;
-}
+} */
 
 
 .form-airdrop {
@@ -193,10 +193,10 @@ h6 {
     display: inline-flex;
 }
 
-.form-airdrop:hover input,
+/* .form-airdrop:hover input,
 button {
     pointer-events: none;
-}
+} */
 
 #form-title {
     color: #02C189;
