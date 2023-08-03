@@ -1,198 +1,21 @@
 <template>
-  <div class="home">
-    <div class="universal-div">
-      <div class="main-div">
-        <h3 class="color-airdrop">Info</h3>
-        <section class="info-airdrop">
-          <div class="box-tax">
-            <div class="sencondary-box">
-              <div class="box-info">
-                <h6>A wild memecoin.</h6>
-              </div>
-            </div>
-            <div class="sencondary-box">
-              <div class="box-info">
-                <h6>A memecoin that will make you see reality.</h6>
-              </div>
-            </div>
-            <div class="sencondary-box">
-              <div class="box-info">
-                <h6>A memecoin that promises to turn you into the next trend.
-                </h6>
-              </div>
-            </div>
-          </div>
-          <section><img class="image-wolf" src="/images/elonwolf-image/shiba-inu.png" alt=""></section>
-        </section>
-      </div>
-      <div class="main-div">
-        <h3 class="color-airdrop">Taxs</h3>
-        <section class="info-airdrop">
-          <div class="box-tax">
-            <div class="sencondary-box">
-              <div class="box-info">
-                <h2>Buy <span class="percent">1%</span></h2>
-              </div>
-            </div>
-            <div class="sencondary-box">
-              <div class="box-info">
-                <h2>Sell <span class="percent">1%</span></h2>
-              </div>
-            </div>
-          </div>
-          <section><img class="image-wolf" src="/images/elonwolf-image/wolf-taxs.png" alt=""></section>
-        </section>
-      </div>
+  <div class="flex gap-6 flex-col my-4 sm:items-center sm:flex-row">
+    <img class="max-w-[88px]" src="https://placehold.co/88x88" alt="">
+    <div>
+      <span>Introducing $</span>
+      <h1> Welcome to the dashboard</h1>
     </div>
-    <div class="universal-div">
-      <div class="main-div">
-        <div class="tokenomics-text">
-          <h3 class="color-airdrop">Tokens</h3>
-        </div>
-        <section class="info-airdrop">
-          <div class="box-tokenomics">
-            <div class="sencondary-box">
-              <div class="box-info">
-                <h2>Liquidity <span class="percent">100%</span></h2>
-              </div>
-            </div>
-            <div class="sencondary-box">
-              <div class="box-info">
-                <h2>Airdrop <span class="percent">...</span></h2>
-              </div>
-            </div>
-          </div>
-          <section><img class="image-wolf" src="images/elonwolf-image/wolf-tokenomics.png" alt=""></section>
-        </section>
-      </div>
-      <div class="main-div">
-        <h3 class="color-airdrop">Goals</h3>
-        <section class="info-airdrop">
-          <div class="box-tokenomics">
-            <div class="sencondary-box">
-              <div class="box-info">
-                <h2>List <span class="percent">Coingecko</span></h2>
-              </div>
-            </div>
-            <div class="sencondary-box">
-              <div class="box-info">
-                <h2>List <span class="percent">CMC</span></h2>
-              </div>
-            </div>
-          </div>
-          <section><img class="image-wolf-other-width" src="images/elonwolf-image/wolf-goals.png" alt="">
-          </section>
-        </section>
-      </div>
-    </div>
-
-    <h1 class="name-title">Airdrop</h1>
-    <section class="main-form">
-      <form class="form-airdrop" id="form">
-        <!-- <section class="form-parts">
-                    <h3 id="form-title">Form Airdrop</h3>
-                    <section class="stats-airdrop">
-                        <div class="item-airdrop">
-                            <h5 class="stats-title">All registered users</h5>
-                            <p class="stats-number">...</p>
-                        </div>
-                        <div class="item-airdrop">
-                            <h5 class="stats-title">Total tokens distributed</h5>
-                            <p class="stats-number">...</p>
-                        </div>
-                        <div class="item-airdrop">
-                            <h5 class="stats-title">Value of distributed tokens</h5>
-                            <p class="stats-number">$...</p>
-                        </div>
-                    </section>
-                </section> -->
-        <label for="nombre">Nick (Discord):</label>
-        <input class="input-airdrop" type="text" id="nombre" name="nombre" required minlength="3" maxlength="32"
-          autocomplete="off" pattern="^[\w\s-]{2,32}#\d{4}$"
-          title="Only letters, numbers, underscores, and hyphens are allowed.">
-        <label for="id">Id (Discord):</label>
-        <input class="input-airdrop" type="text" id="id" name="id" autocomplete="off"
-          title="The Discord ID must be a 17-18 digit number.">
-        <label for="wallet">Wallet (Metamask)</label>
-        <input class="input-airdrop" type="text" id="wallet" name="wallet" required autocomplete="off"
-          pattern="^0x[a-fA-F0-9]{40}$"
-          title="Must be a valid Ethereum wallet address, starting with '0x' followed by 40 alphanumeric characters.">
-        <div class="button-container">
-          <button type="submit" id="">Send</button>
-          <button type="button" id="delete">Delete</button>
-          <button type="button" id="copy">Copy</button>
-        </div>
-      </form>
-      <p id="mensaje" style="display:none">Submitted successfully</p>
-    </section>
-    <!-- <h1 class="name-title">News</h1>
-        <div class="universal-news">
-            <div class="main-div-news">
-                <div class="div-news">
-                    <img class="image-news" src="https://www.imagenesdedesamor.info/wp-content/uploads/2016/08/20.jpg">
-                    <p class="topic-news">Burning</p>
-                    <p class="title-news">Quema de tokens</p>
-                    <p class="date-news">March 10, 2023</p>
-                    <a href="https://ejemplo.com">
-                        <div class="newtab-news">
-                            <svg loading="eager" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="18px"
-                                height="18px">
-                                <path
-                                    d="M 40.960938 4.9804688 A 2.0002 2.0002 0 0 0 40.740234 5 L 28 5 A 2.0002 2.0002 0 1 0 28 9 L 36.171875 9 L 22.585938 22.585938 A 2.0002 2.0002 0 1 0 25.414062 25.414062 L 39 11.828125 L 39 20 A 2.0002 2.0002 0 1 0 43 20 L 43 7.2460938 A 2.0002 2.0002 0 0 0 40.960938 4.9804688 z M 12.5 8 C 8.3826878 8 5 11.382688 5 15.5 L 5 35.5 C 5 39.617312 8.3826878 43 12.5 43 L 32.5 43 C 36.617312 43 40 39.617312 40 35.5 L 40 26 A 2.0002 2.0002 0 1 0 36 26 L 36 35.5 C 36 37.446688 34.446688 39 32.5 39 L 12.5 39 C 10.553312 39 9 37.446688 9 35.5 L 9 15.5 C 9 13.553312 10.553312 12 12.5 12 L 22 12 A 2.0002 2.0002 0 1 0 22 8 L 12.5 8 z">
-                                </path>
-                            </svg>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="main-div-news">
-                <div class="div-news">
-                    <img class="image-news" src="https://www.imagenesdedesamor.info/wp-content/uploads/2016/08/20.jpg">
-                    <p class="topic-news">Burning</p>
-                    <p class="title-news">Quema de tokens</p>
-                    <p class="date-news">March 10, 2023</p>
-                    <a href="https://ejemplo.com">
-                        <div class="newtab-news">
-                            <svg loading="eager" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="18px"
-                                height="18px">
-                                <path
-                                    d="M 40.960938 4.9804688 A 2.0002 2.0002 0 0 0 40.740234 5 L 28 5 A 2.0002 2.0002 0 1 0 28 9 L 36.171875 9 L 22.585938 22.585938 A 2.0002 2.0002 0 1 0 25.414062 25.414062 L 39 11.828125 L 39 20 A 2.0002 2.0002 0 1 0 43 20 L 43 7.2460938 A 2.0002 2.0002 0 0 0 40.960938 4.9804688 z M 12.5 8 C 8.3826878 8 5 11.382688 5 15.5 L 5 35.5 C 5 39.617312 8.3826878 43 12.5 43 L 32.5 43 C 36.617312 43 40 39.617312 40 35.5 L 40 26 A 2.0002 2.0002 0 1 0 36 26 L 36 35.5 C 36 37.446688 34.446688 39 32.5 39 L 12.5 39 C 10.553312 39 9 37.446688 9 35.5 L 9 15.5 C 9 13.553312 10.553312 12 12.5 12 L 22 12 A 2.0002 2.0002 0 1 0 22 8 L 12.5 8 z">
-                                </path>
-                            </svg>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="main-div-news">
-                <div class="div-news">
-                    <img class="image-news" src="https://www.imagenesdedesamor.info/wp-content/uploads/2016/08/20.jpg">
-                    <p class="topic-news">Burning</p>
-                    <p class="title-news">Quema de tokens</p>
-                    <p class="date-news">March 10, 2023</p>
-                    <a href="https://ejemplo.com">
-                        <div class="newtab-news">
-                            <svg loading="eager" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="18px"
-                                height="18px">
-                                <path
-                                    d="M 40.960938 4.9804688 A 2.0002 2.0002 0 0 0 40.740234 5 L 28 5 A 2.0002 2.0002 0 1 0 28 9 L 36.171875 9 L 22.585938 22.585938 A 2.0002 2.0002 0 1 0 25.414062 25.414062 L 39 11.828125 L 39 20 A 2.0002 2.0002 0 1 0 43 20 L 43 7.2460938 A 2.0002 2.0002 0 0 0 40.960938 4.9804688 z M 12.5 8 C 8.3826878 8 5 11.382688 5 15.5 L 5 35.5 C 5 39.617312 8.3826878 43 12.5 43 L 32.5 43 C 36.617312 43 40 39.617312 40 35.5 L 40 26 A 2.0002 2.0002 0 1 0 36 26 L 36 35.5 C 36 37.446688 34.446688 39 32.5 39 L 12.5 39 C 10.553312 39 9 37.446688 9 35.5 L 9 15.5 C 9 13.553312 10.553312 12 12.5 12 L 22 12 A 2.0002 2.0002 0 1 0 22 8 L 12.5 8 z">
-                                </path>
-                            </svg>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div> -->
   </div>
 </template>
 
-<script>
+<!-- <script>
 // @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue';
+import HelloWorld from '@/components/HelloWorld.vue';
 
-// export default {
-//   name: 'HomeView',
-//   components: {
-//     HelloWorld,
-//   },
-// };
-</script>
+export default {
+  name: 'HomeView',
+  components: {
+    HelloWorld,
+  },
+};
+</script> -->
