@@ -1,6 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
-import DatosView from '../views/DatosView';
+import ShareHomeView from '../viewsShare/ShareHomeView.vue';
+import ItemsView from '../views/ItemsView.vue';
+import InvestmentView from '../views/InvestmentView.vue';
+import GlobalChatView from '../views/GlobalChatView.vue';
+import PublishView from '../views/PublishView.vue';
+import MetamaskView from '../views/MetamaskView.vue';
+import Vue from 'vue';
+
 
 const routes = [
   {
@@ -9,19 +16,63 @@ const routes = [
     component: HomeView,
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '@/views/AboutView.vue'),
+    path: '/share',
+    name: 'sharehome',
+    component: ShareHomeView,
+    meta: {
+      hideHeader: true,
+      hideFooter: true,
+    }
+
   },
   {
-    path: '/datos',
-    name: 'datos',
-    component: DatosView,
-  }
+    path: '/items',
+    name: 'itemsview',
+    component: ItemsView,
+    meta: {
+      hideHeader: true,
+      hideFooter: true,
+    }
+  },
+  {
+    path: '/investment',
+    name: 'investmentview',
+    component: InvestmentView,
+    meta: {
+      hideHeader: true,
+      hideFooter: true,
+    }
+  },
+  {
+    path: '/globalchat',
+    name: 'globalchatview',
+    component: GlobalChatView,
+    meta: {
+      hideHeader: true,
+      hideFooter: true,
+    }
+  },
+  {
+    path: '/publish',
+    name: 'publishview',
+    component: PublishView,
+    meta: {
+      hideHeader: true,
+      hideFooter: true,
+    }
+  },
+  {
+    path: '/metamask',
+    name: 'metamaskview',
+    component: MetamaskView,
+    meta: {
+      hideHeader: true,
+      hideFooter: true,
+    }
+  },
+
 ];
+
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),

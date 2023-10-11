@@ -1052,6 +1052,21 @@
     "minimatch" "^3.0.4"
     "strip-json-comments" "^3.1.1"
 
+"@fontsource-variable/montserrat@^5.0.8":
+  "integrity" "sha512-TA18z95y4Oo8ABwKXUAVVXQSSqnZ3lTsz2+bBD1Vwl7XivQw8u1bFU/9tEDlSE0ipZhCYiiMxWn4cjUw7Awkcw=="
+  "resolved" "https://registry.npmjs.org/@fontsource-variable/montserrat/-/montserrat-5.0.9.tgz"
+  "version" "5.0.9"
+
+"@fontsource/hind@^5.0.7":
+  "integrity" "sha512-2p+dX0RsSD9D2PtjUJ8o+VuGvGvigPqMhixFwVtczgdHAFzEh3ZFcSq+5a7KQvYvFq3CXgDWAUO3gWNee/c2YQ=="
+  "resolved" "https://registry.npmjs.org/@fontsource/hind/-/hind-5.0.8.tgz"
+  "version" "5.0.8"
+
+"@fontsource/poppins@^5.0.8":
+  "integrity" "sha512-P8owfYWluoUY5Nyzk4gT/L6LmLmseP6ezFWhj6VBUa5pRIdnCvNJpoQ6i/vhekjtJOfqX6nKlB+LCttoUl2GQQ=="
+  "resolved" "https://registry.npmjs.org/@fontsource/poppins/-/poppins-5.0.8.tgz"
+  "version" "5.0.8"
+
 "@hapi/hoek@^9.0.0":
   "integrity" "sha512-/c6rf4UJlmHlC9b5BaNvzAcFv7HZ2QHaV0D4/HNlBdvFnvQq8RI4kYdhyPCl7Xj+oWvTWQ8ujhqS53LIgAe6KQ=="
   "resolved" "https://registry.npmjs.org/@hapi/hoek/-/hoek-9.3.0.tgz"
